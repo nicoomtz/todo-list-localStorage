@@ -8,9 +8,13 @@ function CrearTarea(props) {
     window.localStorage.getItem("input") || ``
   );
 
+  
+  const array = props.tareas;
+  
   useEffect(() => {
     window.localStorage.setItem("input", input);
-  });
+    console.log('aaa')
+  }, [array] );
 
   function handleChange(e) {
     setInput(e.target.value);
@@ -24,13 +28,19 @@ function CrearTarea(props) {
         id: uuidv4(),
       };
 
-      props.setTareas([nuevaTarea, ...props.tareas]);
-      window.localStorage.setItem('tareas', JSON.stringify(props.tareas))
+      array.unshift(nuevaTarea)
+      props.setTareas(array)
+
+      window.localStorage.setItem('tareas', JSON.stringify(array))
+      setInput('')
+      
+      // props.setTareas([nuevaTarea, ...props.tareas]);
+      // window.localStorage.setItem('tareas', JSON.stringify(props.tareas))
     }
   }
 
   function eliminarTarea(e) {
-    const tareasActualizadas = props.tareas.filter(
+    const tareasActualizadas = array.filter(
       (tarea) => tarea.id !== e.target.id
     );
     window.localStorage.setItem('tareas', JSON.stringify(tareasActualizadas))
@@ -54,7 +64,7 @@ function CrearTarea(props) {
         </button>
       </form>
       <div className="lista-de-tareas">
-        {props.tareas.map((tarea) => (
+        {array.map((tarea) => (
           <Tarea
             texto={tarea.texto}
             id={tarea.id}

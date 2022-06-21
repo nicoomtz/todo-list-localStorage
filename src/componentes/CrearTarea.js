@@ -13,7 +13,6 @@ function CrearTarea(props) {
   
   useEffect(() => {
     window.localStorage.setItem("input", input);
-    console.log('aaa')
   }, [array] );
 
   function handleChange(e) {
@@ -33,7 +32,7 @@ function CrearTarea(props) {
 
       window.localStorage.setItem('tareas', JSON.stringify(array))
       setInput('')
-      
+
       // props.setTareas([nuevaTarea, ...props.tareas]);
       // window.localStorage.setItem('tareas', JSON.stringify(props.tareas))
     }

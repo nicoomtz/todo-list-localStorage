@@ -21,7 +21,7 @@ function CrearTarea(props) {
     if (input !== "") {
       const nuevaTarea = {
         texto: input,
-        id: uuidv4()
+        id: uuidv4(),
       };
 
       props.setTareas([nuevaTarea, ...props.tareas]);

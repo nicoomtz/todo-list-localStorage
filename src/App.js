@@ -1,10 +1,10 @@
 import "./styles.css";
 import CrearTarea from "./componentes/CrearTarea";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function App() {
   const [tareas, setTareas] = useState(
-    () => window.localStorage.getItem(('tareas')) || []
+    () => JSON.parse(window.localStorage.getItem('tareas')) || []
     );
 
   return (

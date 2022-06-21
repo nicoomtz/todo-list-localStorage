@@ -1,0 +1,19 @@
+.tarea {
+  max-width: 300px;
+  background-color: salmon;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px auto;
+  border-radius: 15px;
+  padding: 0 25px 0px 10px;
+  color: white;
+}
+
+.tarea-texto {
+  user-select: none;
+}
+
+.completada {
+  text-decoration: line-through;
+}
